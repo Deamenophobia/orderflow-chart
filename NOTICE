@@ -1,0 +1,9 @@
+Canvas setup, linear scaling and line-drawing helpers were adapted from an
+owner-provided frontend implementation. The owner authorized this public
+extraction under the MIT license in LICENSE. Exact private source mapping is
+maintained outside the public repository.
+
+The layered renderer, standalone host and recording interface are maintained as
+this project. It is not represented as an exact copy of a historical deployed
+chart. Examples are synthetic; no private recording or external market dataset
+is included. This source has no third-party runtime package dependencies.

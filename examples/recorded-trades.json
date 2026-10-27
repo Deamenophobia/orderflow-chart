@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "instrument": "SYNTHETIC-DEMO DOWN (synthetic-round)",
+  "description": "Historical trade recording: source seconds converted to milliseconds, sorted by timestamp then row ID. Supplied BUY/SELL direction retained; missing direction is unknown. Native token prices retained. IDs identify source table rows, not exchange trade identities. SQLite REAL values already have floating-point precision; decimal strings do not recover lost precision. No wallet fields or source transaction identifiers exported. No trades or cancellations inferred from books.",
+  "snapshots": [
+    {
+      "sequence": 2,
+      "timestamp_ms": 1700000000000,
+      "bids": [
+        {
+          "price": "0.5600",
+          "size": "2.500"
+        }
+      ],
+      "asks": [
+        {
+          "price": "0.6000",
+          "size": "3"
+        }
+      ]
+    }
+  ],
+  "trades": [
+    {
+      "id": "hist_trades:3",
+      "timestamp_ms": 1700000000000,
+      "price": "0.58",
+      "size": "4.5",
+      "side": "buy"
+    },
+    {
+      "id": "hist_trades:4",
+      "timestamp_ms": 1700000001000,
+      "price": "0.59",
+      "size": "3",
+      "side": "unknown"
+    },
+    {
+      "id": "hist_trades:7",
+      "timestamp_ms": 1700000001000,
+      "price": "0.6",
+      "size": "6",
+      "side": "sell"
+    },
+    {
+      "id": "hist_trades:1",
+      "timestamp_ms": 1700000002000,
+      "price": "0.57",
+      "size": "2",
+      "side": "sell"
+    }
+  ]
+}

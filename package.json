@@ -1,0 +1,19 @@
+{
+  "name": "orderflow-chart",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Deamenophobia/orderflow-chart.git"
+  },
+  "type": "module",
+  "description": "Canvas 2D liquidity heatmaps, trade bubbles and trade-derived candles",
+  "exports": "./src/chart.js",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.js",
+    "check": "node scripts/check.mjs"
+  },
+  "engines": { "node": ">=22" }
+}

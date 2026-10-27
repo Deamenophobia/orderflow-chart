@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Orderflow Chart · Liquidity & trades</title>
+  <link rel="stylesheet" href="./demo/style.css">
+</head>
+<body>
+  <header><a class="brand" href="./"><span class="brand-mark">▥</span> orderflow<span>chart</span></a><span class="local">● LOCAL WORKBENCH</span></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">01 / OBSERVE THE MARKET</p><h1>See liquidity. Follow the trades.</h1><p>One time and price space for resting liquidity, executed trades, and candles.</p></div>
+      <div class="source-actions"><button id="sample">Load demo ↗</button><label class="button secondary">Import JSON ＋<input id="file" type="file" accept=".json,application/json"></label></div>
+    </section>
+    <p id="error" role="alert" hidden></p>
+    <div class="source-strip"><strong id="instrument"></strong><span id="source-label"></span><span id="counts"></span><a href="./docs/input-format.md" target="_blank" rel="noopener">Data contract ↗</a></div>
+    <div class="workspace">
+      <section class="chart-card" aria-label="Chart workbench">
+        <div class="chart-heading"><div><p class="eyebrow">02 / LIQUIDITY & EXECUTIONS</p><h2>Market in layers</h2></div><span class="engine">Canvas 2D</span></div>
+        <div class="toolbar">
+          <div class="toggles"><label><input id="heatmap" type="checkbox" checked> Liquidity</label><label><input id="trades" type="checkbox" checked> Trades</label><label><input id="candles" type="checkbox" checked> 5s candles</label></div>
+          <div class="viewport-controls"><button id="left" aria-label="Pan left">←</button><button id="right" aria-label="Pan right">→</button><button id="zoom-in" aria-label="Zoom in">＋</button><button id="zoom-out" aria-label="Zoom out">−</button><button id="fit">Fit view</button></div>
+        </div>
+        <div class="canvas-wrap"><canvas id="chart"></canvas></div>
+        <div class="legend"><span><i class="bid"></i>Bid liquidity</span><span><i class="ask"></i>Ask liquidity</span><span><i class="buy round"></i>Buy trade</span><span><i class="sell round"></i>Sell trade</span><span><i class="unknown round"></i>Unknown</span></div>
+        <div class="chart-footer"><span id="viewport"></span><span>Scroll to zoom · Drag to pan · Hover to inspect</span></div>
+        <div class="playback"><button id="play">Replay</button><button id="reset" class="secondary">Reset</button><label for="cursor">Replay position</label><input id="cursor" type="range" min="0" max="1000" value="1000"><output id="cursor-label">Full recording</output></div>
+      </section>
+      <aside>
+        <section class="detail-card"><p class="eyebrow">03 / INSPECT</p><h2 id="detail-title">Every event has context.</h2><p id="detail-hint">Hover a bubble or liquidity band, or select a trade below.</p><dl id="details"></dl></section>
+        <section class="reading"><h3>How to read this view</h3><p>Brighter bands mean more resting quantity. Bubble area follows trade quantity, with size caps for readability.</p><p>Gray candles show OHLC from supplied trades in 5-second UTC buckets. Missing buckets stay empty.</p><p id="availability"></p><p id="scale-note"></p></section>
+      </aside>
+    </div>
+    <section class="bottom"><div class="recording-note"><p class="eyebrow">RECORDING NOTES</p><p id="description"></p><p>Book levels are held for at most 1.5 seconds. Blank intervals have no known book; they are not zero liquidity. Playback belongs to this demo host.</p></div><div class="trade-list"><div class="list-title"><h3>Recent visible trades</h3><span>Select to inspect</span></div><div id="trade-list"></div></div></section>
+  </main>
+  <footer>ORDERFLOW CHART <span>Offline visualization · Local workbench</span></footer>
+  <script type="module" src="./demo/app.js"></script>
+</body>
+</html>
