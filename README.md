@@ -9,6 +9,20 @@ in your own research interface.
 
 *The bundled synthetic recording; no external market dataset is included.*
 
+## Tech stack
+
+| Layer | Technology | Role |
+| --- | --- | --- |
+| Rendering | Browser Canvas 2D API | Liquidity bands, trade bubbles, candles, axes and hit testing. |
+| Library | JavaScript ES modules | Data validation, time/price mapping and an embeddable chart interface. |
+| Workbench | HTML, CSS and browser JavaScript | File import, layer controls, event inspection and playback. |
+| Local tooling | Node.js 22+, built-in HTTP server and `node:test` | Serve the demo and run focused behavior checks. |
+| CI | GitHub Actions | JavaScript syntax, module-size and behavior checks. |
+
+The renderer runs directly in the browser with zero third-party runtime
+dependencies. Node.js is used for local development and checks. The library is
+framework-independent, and the host application owns playback and data loading.
+
 ## Run
 
 Requires Node 22 or later. There are no runtime packages to install and no build
